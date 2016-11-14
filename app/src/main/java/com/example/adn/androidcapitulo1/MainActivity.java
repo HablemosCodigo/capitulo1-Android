@@ -1,6 +1,7 @@
 package com.example.adn.androidcapitulo1;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,13 +15,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button boton;
     EditText txtNombre;
     Button btnSaludar;
+    Button btnLanzarActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         boton=(Button)findViewById(R.id.boton1);
+        btnLanzarActivity=(Button)findViewById(R.id.boton2);
         txtNombre=(EditText)findViewById(R.id.editText);
         boton.setOnClickListener(this);
+        btnLanzarActivity.setOnClickListener(this);
         btnSaludar=(Button)findViewById(R.id.button3);
         btnSaludar.setOnClickListener(this);
     }
@@ -41,6 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             AlertDialog alert = builder.create();
             alert.show();
             txtNombre.setText("");
+
+        }
+        else if(v.getId()== R.id.boton2){
+            Intent i = new Intent(getApplicationContext(),imagen.class);
+            startActivity(i);
 
         }
     }
